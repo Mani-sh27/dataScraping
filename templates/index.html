@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delhi Web Clients</title>
+</head>
+<body>
+    <h1>Delhi Web Development Clients</h1>
+    <button onclick="loadClients()">Fetch Clients</button>
+    <ul id="results"></ul>
+
+    <script>
+        function loadClients() {
+            fetch('/scrape')
+            .then(res => res.json())
+            .then(data => {
+                const results = document.getElementById('results');
+                results.innerHTML = '';
+                data.forEach(client => {
+                    const li = document.createElement('li');
+                    li.textContent = `${client.Name} - ${client.Phone} - ${client.Address}`;
+                    results.appendChild(li);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
