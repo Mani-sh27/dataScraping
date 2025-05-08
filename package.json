@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "simple-git": "^3.27.0"
+
+  },
+  "scripts": {
+ "auto-push": "git add . && git commit -m \"auto push\" && git push origin master"
+  }
+}
